@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Ruslan+Display&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Ruslan Display", cursive;
+
+  line-height: 1.6;
+
+  background: white;
+  overflow: hidden;
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background: white;
+  color: #333;
+  text-align: center;
+  /* padding: 10px 40px; */
+  width: 200px;
+  margin: 20px;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+#h2-id {
+  color: white;
+  margin-top: 30px;
+  margin-right: 40px;
+}
+
+#h1-id {
+  font-size: 70px;
+
+  padding-top: 20px;
+  width: 100%;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  height: 40vh;
+  background: #333;
+}
+
+.content {
+  display: flex;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.question {
+  background: white;
+  width: 100px;
+  height: 100px;
+  margin-top: 15px;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 260px;
+  font-size: 50px;
+}
+
+.main {
+  display: flex;
+  margin-top: 10px;
+  width: 100%;
+  height: 59vh;
+  background: black;
+}
+
+.left {
+  width: 50%;
+  height: 100%;
+  background: #333;
+  text-align: center;
+  /* padding: 100px; */
+}
+
+.right {
+  width: 50%;
+  height: 100%;
+  background: #333;
+  text-align: center;
+  /* padding: 100px; */
+}
+
+.check {
+  cursor: pointer;
+  display: inline-block;
+  background: white;
+  color: #333;
+  margin: 0 auto;
+  width: 200px;
+  /* padding: 20px; */
+  margin: 40px;
+  border: none;
+}
+.guess {
+  border-color: white;
+  border: solid 4px;
+  background: #333;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  width: 250px;
+  margin: 0 auto;
+  /* height: 80px; */
+  margin-top: 100px;
+  display: block;
+  font-family: inherit;
+}
+
+.message,
+.label-score,
+.label-highScore {
+  font-size: 30px;
+  color: white;
+}
+
+.message {
+  margin-top: 100px;
+}
+
+.label-score {
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    /* padding: 10px; */
+    width: 150px;
+    font-size: 30px;
+  }
+  #h1-id {
+    font-size: 30px;
+  }
+
+  .guess {
+    width: 150px;
+    /* height: 50px; */
+  }
+
+  .check {
+    width: 150px;
+    font-size: 30px;
+  }
+
+  .message,
+  .label-score,
+  .label-highScore {
+    font-size: 20px;
+  }
+
+  #h2-id {
+    font-size: 20px;
+  }
+}
