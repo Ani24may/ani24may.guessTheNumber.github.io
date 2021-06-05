@@ -148,10 +148,10 @@ a {
   .btn {
     /* padding: 10px; */
     width: 150px;
-    font-size: 30px;
+    font-size: 20px;
   }
   #h1-id {
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .guess {
@@ -161,7 +161,7 @@ a {
 
   .check {
     width: 150px;
-    font-size: 30px;
+    font-size: 20px;
   }
 
   .message,
