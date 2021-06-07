@@ -26,6 +26,10 @@ let score = 20;
 let highScore = 0;
 let prevHighscore = 0;
 
+const displayMessage = (message) => {
+  document.querySelector(".message").textContent = message;
+};
+
 console.log(secret);
 
 document.querySelector(".check").addEventListener("click", () => {
@@ -35,11 +39,13 @@ document.querySelector(".check").addEventListener("click", () => {
 
   //when there is no input
   if (!guess) {
-    document.querySelector(".message").textContent = "❌ No number !";
+    // document.querySelector(".message").textContent = "❌ No number !";
+    displayMessage("❌ No number !");
   }
   //when player winds
   else if (guess === secret) {
-    document.querySelector(".message").textContent = "✅ Correct Number !";
+    // document.querySelector(".message").textContent = "✅ Correct Number !";
+    displayMessage("✅ Correct Number !");
     document.querySelector(".question").textContent = secret;
     document.querySelector(".header").style.backgroundColor = "#60b347";
     document.querySelector(".left").style.backgroundColor = "#60b347";
@@ -53,30 +59,45 @@ document.querySelector(".check").addEventListener("click", () => {
     //we need to specify css property in camel case nitation in case there is two words . for e.g background-color will be backgroundColor
     //and the value always need to be string format
   }
+  //when guess is wrong
+  else if (guess !== secret) {
+    if (score > 1) {
+      displayMessage(guess > secret ? "💹 Too High !" : "☢ Too Low !");
+      // document.querySelector(".message").textContent =
+      //   guess > secret ? "💹 Too High !" : "☢ Too Low !";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      displayMessage("😥 You Lost the Game !");
+      // document.querySelector(".message").textContent = "😥 You Lost the Game !";
+      document.querySelector(".score").textContent = 0;
+    }
+  }
+
   //when guess is greater than secret number
-  else if (guess > secret) {
-    //logic to decrese the score
-    if (score > 1) {
-      document.querySelector(".message").textContent = "💹 Too High !";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "😥 You Lost the Game !";
-      document.querySelector(".score").textContent = 0;
-    }
-  }
-  //when guess is smaller than secret number
-  else if (guess < secret) {
-    //logic to decrese the score
-    if (score > 1) {
-      document.querySelector(".message").textContent = "☢ Too Low !";
-      score--;
-      document.querySelector(".score").textContent = score;
-    } else {
-      document.querySelector(".message").textContent = "😥 You Lost the Game !";
-      document.querySelector(".score").textContent = 0;
-    }
-  }
+  // else if (guess > secret) {
+  //   //logic to decrese the score
+  //   if (score > 1) {
+  //     document.querySelector(".message").textContent = "💹 Too High !";
+  //     score--;
+  //     document.querySelector(".score").textContent = score;
+  //   } else {
+  //     document.querySelector(".message").textContent = "😥 You Lost the Game !";
+  //     document.querySelector(".score").textContent = 0;
+  //   }
+  // }
+  // //when guess is smaller than secret number
+  // else if (guess < secret) {
+  //   //logic to decrese the score
+  //   if (score > 1) {
+  //     document.querySelector(".message").textContent = "☢ Too Low !";
+  //     score--;
+  //     document.querySelector(".score").textContent = score;
+  //   } else {
+  //     document.querySelector(".message").textContent = "😥 You Lost the Game !";
+  //     document.querySelector(".score").textContent = 0;
+  //   }
+  // }
 });
 
 //addEventListener we need to pass the type of event , here in our case is click
@@ -88,7 +109,8 @@ document.querySelector(".btn").addEventListener("click", () => {
   secret = Math.trunc(Math.random() * 20) + 1;
   score = 20;
   document.querySelector(".score").textContent = score;
-  document.querySelector(".message").textContent = "Start Guessing...";
+  displayMessage("Start Guessing...");
+  // document.querySelector(".message").textContent = "Start Guessing...";
   document.querySelector(".header").style.backgroundColor = "#333";
   document.querySelector(".left").style.backgroundColor = "#333";
   document.querySelector(".right").style.backgroundColor = "#333";
